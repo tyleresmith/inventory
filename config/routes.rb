@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "welcome#home"
   resources :users, only: [:show]
   
-  resources :inventories do
+  resources :categories do
     resources :items, :only => [:new]
   end
 

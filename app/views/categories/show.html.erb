@@ -1,6 +1,8 @@
 <h1><%= @category.name %></h1>
 <h3>Total items: <%= @category.total_items %></h3>
 
+<p><%= link_to 'Edit', edit_category_path(@category) %></p>
+<p><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <ul>
 	<% @category.items.each do |item| %>
 		<li><%= link_to item.name, item_path(item) %> (<%= item.quantity %>)</li>
