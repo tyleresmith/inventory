@@ -30,7 +30,7 @@ Allows users to catalog and track all items in their lives. This top down views 
 - Forms must display errors "fields should be enclosed within a fields_with_errors class and error messages"
 - DRY as possible
 - change /users/sign_in url to login
-- Double 'Welcome! You have signed up successfully' flash message
+
 
 <!-- 
 Some setup you must do manually if you haven't yet:
