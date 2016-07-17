@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   
   resources :categories do
-    resources :items, :only => [:new]
+    resources :items, :only => [:new, :edit]
   end
 
-  resources :items, only: [:index, :show, :edit, :update, :destroy, :create]
+  resources :items, only: [:index, :show, :update, :destroy, :create]
 end

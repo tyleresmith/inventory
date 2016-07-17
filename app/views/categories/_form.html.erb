@@ -12,18 +12,16 @@
       </ul>
     </div>
   <% end %>
+  <p>Select from pre-exist inventories</p>
+  <%= f.collection_select :id, Category.all, :name, :name %><br>
+  
+
+  <p>Or create your own</p>
 
   <div class="field">
-    <%= f.label :name %>
-    <br>
     <%= f.text_field :name %>
   </div>
-
-  <p>OR</p>
-
-  <%= f.collection_select :category_id, Category.all, :id, :name %><br>
-
-  <div class="actions">
+  <div class="actions"><br>
     <%= f.submit %>
   </div>
 <% end %>

@@ -4,6 +4,6 @@
 <%= link_to 'Create Inventory', new_category_path %> 
 <ul>	
 	<% @user.categories.each do |category| %>
-		<li><%= link_to category.name, category_path(category) %> (<%= category.total_items %>)</li>
+		<li><%= link_to category.name, category_path(category) %> (<%= category.total_items %>) <%= link_to 'x', category, method: :delete, data: { confirm: 'delete?' } %></li>
 	<% end %>
 </ul>

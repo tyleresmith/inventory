@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   def show
 
   end
@@ -10,7 +10,8 @@ class CategoriesController < ApplicationController
 
 
   def create
-    @category = Category.new(post_params)
+    @category = Category.new(name: category_name, user_id: current_user.id)
+
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
@@ -19,7 +20,7 @@ class CategoriesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
-    end
+    end 
   end
 
   def edit
@@ -28,8 +29,8 @@ class CategoriesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Post was successfully created.' }
+      if @category.update(name: category_name)
+        format.html { redirect_to @category, notice: 'Post was successfully edited.' }
         format.json { render action: 'show', status: :created, location: @category }
       else
         format.html { render action: 'new' }
@@ -52,7 +53,11 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def category_name
+    !category_params['name'].empty? ? category_params['name'] : category_params['id']
+  end 
+
   def category_params
-    params.require(:category).permit(:name, :name_id)
+    params.require(:category).permit(:name, :id)
   end
 end

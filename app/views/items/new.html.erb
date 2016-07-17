@@ -1,5 +1,5 @@
-<h1>New Item for <%= @category %></h1>
+<h1>New Item for <%= @category.name %></h1>
 
 <%= render 'form' %>
 
-<%= link to 'Back', user_path(current_user) %>
+<%= link_to 'Back', user_path(current_user) %>
