@@ -26,4 +26,12 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
+  def total_items
+    total = 0
+    self.categories.each do |cat|
+      cat.items.each { |i| total += i.quantity} 
+    end
+    total
+  end
 end

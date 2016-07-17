@@ -1,9 +1,9 @@
 <h1> <%= @user.username %> </h1>
-
+<h2>Total items: <%= @user.total_items %></h2>
 <h3>Inventories</h3>
 <ul>	
 	<% @user.categories.each do |category| %>
-		<li><%= category.name %></li>
+		<li><%= link_to category.name, inventory_path(category) %> (<%= category.total_items %>)</li>
 	<% end %>
 
 </ul>
