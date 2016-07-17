@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @item.update(name: item_name)
+      if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Post was successfully edited.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
@@ -40,9 +40,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @category = @item.category
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
+      format.html { redirect_to category_path(@category) }
       format.json { head :no_content }
     end
   end
