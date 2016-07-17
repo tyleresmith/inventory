@@ -5,4 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-categories = [{name: 'Pantry'}, {name: 'Fridge'}, {name: 'Books'}, {name: 'Clothing'}, {name: 'Hobby'}, {name: 'Work'}, {name: 'Transportation'}, {name: 'Misc.'}]
+
+Category.create([
+  {name: 'Pantry', user_id: 3}, 
+  {name: 'Fridge', user_id: 3}, 
+  {name: 'Books', user_id: 3}, 
+  {name: 'Clothing', user_id: 3}, 
+  {name: 'Hobby', user_id: 3}, 
+  {name: 'Work', user_id: 3}, 
+  {name: 'Transportation', user_id: 3}, 
+  {name: 'Misc.', user_id: 3}
+])
