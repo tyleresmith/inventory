@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :login
+  has_many :comments
   has_many :categories
+  has_many :items, through: :categories
   validates :username,
     :presence => true,
     :uniqueness => {
@@ -33,5 +35,9 @@ class User < ApplicationRecord
       cat.items.each { |i| total += i.quantity} 
     end
     total
+  end
+
+  def most_recent_comments
+    self.comments.last(5)
   end
 end

@@ -7,3 +7,14 @@
 		<li><%= link_to category.name, category_path(category) %> (<%= category.total_items %>) <%= link_to 'x', category, method: :delete, data: { confirm: 'delete?' } %></li>
 	<% end %>
 </ul>
+
+
+<h3>Most Recent Comments</h3>
+<ul>	
+	<% @user.most_recent_comments.each do |comment| %>
+		<li>
+			<p class="small">Posted on <%= comment.username_and_inventory(current_user)%> -  <%= comment.created_at %> </p>
+			<p>'<%= comment.content %>'</p>
+		</li>
+	<% end %>
+</ul>

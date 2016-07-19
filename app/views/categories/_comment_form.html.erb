@@ -1,0 +1,25 @@
+<%= form_for comment do |f| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:
+      </h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label 'Comment' %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :category_id, value: category.id %>
+  </div>
+  <div class="actions"><br>
+    <%= f.submit %>
+  </div>
+<% end %>

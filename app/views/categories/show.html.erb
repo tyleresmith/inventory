@@ -8,3 +8,16 @@
 		<li><%= link_to item.name, item_path(item) %> (<%= item.quantity %>)</li>
 	<% end %>
 </ul>
+
+<%= render partial: 'comment_form', locals: {comment: @comment, category: @category} %>
+
+<ul>
+	<% if @category.comments %>
+		<% @category.comments.each do |comment| %>
+			<li>
+			<p class="small"><%= comment.created_at %> <%= comment.user.username %></p>
+			<p>'<%= comment.content %>'</p>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
