@@ -1,24 +1,11 @@
-# README
+# Inventory
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web app that allows users to view the items that they have accumilated in order to assess what is necessary. Aim is to help declutter peopl's lives and minimalize the unnecessary.
 
-Things you may want to cover:
+#Use
 
-* Ruby version
+Users can create inventories that house the items within. Other user's can comment on individual's inventories.
 
-* System dependencies
+NOTE - SSL Verification has been disabled for development due to system limitations on the developer's end (Windows 10). It is NOT advise to reuse any config files as it opens up possible attacks.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

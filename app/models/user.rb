@@ -12,7 +12,8 @@ class User < ApplicationRecord
     }
   validate :validate_username
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, 
+         :omniauthable, :omniauth_providers => [:facebook]
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -39,5 +40,13 @@ class User < ApplicationRecord
 
   def most_recent_comments
     self.comments.last(5)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.username = auth.info.name   # assuming the user model has a name
+    end
   end
 end
