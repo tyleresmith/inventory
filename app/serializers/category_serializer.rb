@@ -1,4 +1,4 @@
 class CategorySerializer < ActiveModel::Serializer
   attributes :user_id, :name
-  belongs_to :user
+  has_one :user, serializer: CategoryUserSerializer
 end
