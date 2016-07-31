@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :items, only: [:new, :edit]    
   end
-  
-  resources :comments, only: [:create, :delete]
+
+  resources :comments, only: [:create, :delete, :show]
   resources :items, only: [:index, :show, :update, :destroy, :create]
 end

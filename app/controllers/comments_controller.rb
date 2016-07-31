@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     end 
   end
 
+  def show
+    @comment = Comment.find(params[:id])
+    render json: @comment
+  end
+
+
   private
   
   def category_params

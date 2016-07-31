@@ -2,7 +2,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :edit]
   def show
-
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @item}
+    end
   end
 
   def new

@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   def show
     @comment = Comment.new
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @category}
+    end
   end
 
   def new
