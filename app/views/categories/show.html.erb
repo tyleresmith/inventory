@@ -5,8 +5,8 @@
 <p><%= link_to 'Add Item', new_category_item_path(@category) %></p>
 <ul>
 	<% @category.items.each do |item| %>
-		<li class="item-<%= item.id %>"><%= link_to item.name, item_path(item) %> (<%= item.quantity %>)</li>
-    <button class="js-more" data-id="<%= item.id %>">...</button>
+		<li id="item-<%= item.id %>"><%= link_to item.name, item_path(item) %> (<%= item.quantity %>)</li>
+    <button class="js-more" id="item-btn-<%= item.id %>" data-id="<%= item.id %>">...</button>
 	<% end %>
 </ul>
 <%= render partial: 'comment_form', locals: {comment: @comment, category: @category} %>
@@ -27,13 +27,14 @@ $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
     $.get("/items/" + id + ".json", function(data) {
+      console.log(data["necessary"]);
       var inventoryText = "<strong>Unnecessary</strong>";
       if(data["necessary"]){
         inventoryText = "<strong>Necessary</strong>";
       }
       var descriptionText = "<p>" + data["description"] + "</p><p>" + inventoryText + "</p>";
       $("#item-" + id).append(descriptionText);
-      $(this).unwrap();
+      $("#item-btn-" +id).remove();
     });
   });
 });
