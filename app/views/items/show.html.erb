@@ -7,4 +7,3 @@
 
 <p><%= link_to 'Edit', edit_category_item_path(@item.category, @item) %> <%= link_to 'delete', @item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <%= link_to 'Return to ' + @item.category.name, category_path(@item.category) %>
-
