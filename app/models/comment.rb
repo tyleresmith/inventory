@@ -6,8 +6,7 @@ class Comment < ApplicationRecord
   validates :category_id, presence: true
 
   def username_and_inventory(current_user)
-
-    self.user === current_user ? user = 'Your' : user = self.user.username + "'s"
+    self.category.user === current_user ? user = 'Your' : user = self.category.user.username + "'s"
     user + " " + self.category.name + " Inventory"
     # ex: Your Pantry Inventory OR
     # ex: Jon Doe's Pantry Inventory
