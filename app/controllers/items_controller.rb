@@ -10,10 +10,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+ 
   end
 
   def index
-    @items = Item.all
+    @items = current_user.items
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @items}
+    end
   end
 
   def create
