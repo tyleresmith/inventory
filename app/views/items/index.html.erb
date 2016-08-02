@@ -1,0 +1,15 @@
+<h1>Behold All Your Items</h1>
+
+<script>
+$(function() {
+  $.get("/items.json", function(data) {
+  	console.log(data);
+    var necessary = "<strong>Unnecessary</strong>"
+    var itemsHtml = ["<ul>"];
+    itemsHtml.push("<ul>");
+    itemsHtml.join('');
+    $("h1").append(itemsHtml);
+  	$("#item-btn-" +id).remove();
+  });
+});
+<script>
