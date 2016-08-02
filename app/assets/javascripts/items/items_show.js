@@ -1,20 +1,14 @@
 $(function() {
   var id = $(".show_item").data("id")
-  debugger;
 
   $.get("/items/"+id+".json", function(data) {
-  	console.log(data);
-    var necessary = "<strong>Unnecessary</strong>"
-
-    if(data["necessary"]){
-      necessary = "<strong>Necessary</strong>";
-    }
-    var item = [,
-        '<h1> '+data["name"]+'</h1>',
-        necessary,
-        '<p>Quantity: ' + data["quantity"] + '</p>',
-        '<p>Description: ' + data["description"]
+    var item = new Item(data);
+    var itemHtml = [,
+        '<h1> '+item.name+'</h1>',
+        item.isNecessary(),
+        '<p>Quantity: ' + item.quantity + '</p>',
+        '<p>Description: ' + item.description,
     ].join('');
-    $(".show_item").append(item);
+    $(".show_item").append(itemHtml);
   });
 });
