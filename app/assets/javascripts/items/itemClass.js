@@ -8,6 +8,6 @@ class Item {
 	}
 
 	isNecessary() {
-		 return this.necessary ? "<strong>Necessary</strong>" : "<strong>Unnecessary</strong>";
+		return this.necessary ? "<strong>Necessary</strong>" : "<strong>Unnecessary</strong>";
 	}
 }
