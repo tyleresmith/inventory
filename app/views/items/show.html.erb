@@ -1,9 +1,6 @@
-<h1><%= @item.name %></h1>
+<%= javascript_include_tag "items_index" %>
 
-<h3><%= @item.necessary ? 'Necessary' : 'Unnecessary'%></h3>
-
-<p>Quantity: <%= @item.quantity %></p>
-<p>Description: <%= @item.description %></p>
+<div class="show_item" data-id="<%=@item.id%>"></div>
 
 <p><%= link_to 'Edit', edit_category_item_path(@item.category, @item) %> <%= link_to 'delete', @item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <%= link_to 'Return to ' + @item.category.name, category_path(@item.category) %>
