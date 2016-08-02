@@ -4,10 +4,10 @@ class Item {
 		this.description = json["description"];
 		this.quantity = json["quantity"];
 		this.necessary = json["necessary"];
-		this.category_id = json["category_id"]
+		this.category_id = json["category_id"];
 	}
 
-	this.isNecessary() {
-		this.necessary ? "<strong>Necessary</strong>" : "<strong>Unnecessary</strong>"
+	isNecessary() {
+		 return this.necessary ? "<strong>Necessary</strong>" : "<strong>Unnecessary</strong>";
 	}
 }
