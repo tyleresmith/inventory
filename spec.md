@@ -10,8 +10,10 @@ Specs:
 	- User's serializer has a has_many relationship, utlizing another serializer to avoid redundancy
 - [x] Include at least one link that loads or updates a resource without reloading the page
 	- Category show page lists items that have a buttton to load in descriptions and delete button
-- [ ] Translate JSON responses into js model objects
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype
+- [x] Translate JSON responses into js model objects
+	- item's show json is translated in js model
+- [x] At least one of the js model objects must have at least one method added by your code to the prototype
+	- item js model has funciton that abstracts way view logic
 
 Confirm
 - [x] You have a large number of small Git commits
