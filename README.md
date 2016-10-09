@@ -1,6 +1,6 @@
 # Inventory
 
-A web app that allows users to view the items that they have accumilated in order to assess what is necessary. Aim is to help declutter peopl's lives and minimalize the unnecessary.
+A web app that allows users to view the items that they have accumulated in order to assess what is necessary. Aim is to help declutter people's lives and minimize the unnecessary. 
 
 #Usage
 
